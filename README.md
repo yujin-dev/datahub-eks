@@ -1,6 +1,4 @@
-# Deploy Datahub on local kubernetes cluster
-
-## Datahub
+# Datahub
 ![](datahub.png)
 1. Datahub frontend
 
@@ -37,6 +35,7 @@ DataHub ships with a Python based metadata-ingestion system that can connect to 
 #### Push-based integration
 As long as you can emit a Metadata Change Proposal (MCP) event to Kafka or make a REST call over HTTP, you can integrate any system with DataHub. For convenience, DataHub also provides simple Python emitters for you to integrate into sources to emit metadata changes (MCP-s) at the point of origin.
 
+# Deploy Datahub on local kubernetes cluster
 
 ## Commands
 ```
