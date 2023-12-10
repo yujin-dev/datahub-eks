@@ -37,6 +37,26 @@ As long as you can emit a Metadata Change Proposal (MCP) event to Kafka or make 
 
 # Deploy Datahub on local kubernetes cluster
 
+## Diagram
+```
+                datahub-frontend-react  datahub-actions
+                                     \   /
+                                       |   datahub-upgrade (NoCodeDataMigration, helm only)
+                                       |   /
+                                datahub-gms (healthy)
+                                       |
+                                datahub-upgrade (SystemUpdate completed)
+            /--------------------/   |   \   \------------------------------------------------\
+           /                         |    \-------------------\                                \
+mysql-setup (completed)  elasticsearch-setup (completed)  kafka-setup (completed)  (if apply) neo4j (healthy)
+    |                           |                          /         \
+    |                           |                         /           \
+mysql (healthy)         elasticsearch (healthy)   broker (healthy)  (if not internal) schema-registry  (healthy)
+                                                      |
+                                                  zookeeper (healthy)
+``````
+[Datahub Docker Container Architecture](https://datahubproject.io/docs/architecture/docker-containers)
+
 ## Commands
 ```
 Available recipes:
